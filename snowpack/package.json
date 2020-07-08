@@ -1,0 +1,19 @@
+{
+  "name": "snowpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "snowpack": "^2.6.3"
+  },
+  "dependencies": {
+    "antd": "^4.4.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "presets": [
+    [
+      "preset-env",
+      {
+        "modules": false
+      }
+    ],
+    "preset-react"
+  ],
+  "plugins": ["transform-runtime"]
+}
