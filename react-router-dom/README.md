@@ -1,10 +1,10 @@
 ## react-router-dom
 
-实现简易的 react-router-dom
+实现简易的 `react-router-dom`
 
 ### 架构
 
-使用 React.Context 保存 路由类型、当前路由、路由改变事件
+使用 `React.Context` 保存 路由类型、当前路由、路由改变事件
 
 ```javascript
 {
@@ -16,7 +16,7 @@
 
 ### BrowserRouter
 
-监听 popstate 事件，路由变化时设置当前 pathname
+监听 `popstate` 事件，路由变化时设置当前 `pathname`
 
 ```javascript
 window.addEventListener('popstate', () => {
@@ -37,13 +37,13 @@ window.addEventListener('hashchange', () => {
 
 ### Route
 
-接收 path 和 component 属性，从 context 中获取 currentPath，对比 path 决定是否返回 component
+接收 `path` 和 `component` 属性，从 `context` 中获取 `currentPath`，对比 `path` 决定是否返回 `component`
 
 ### Link
 
-接收 to 属性
+接收 `to` 属性
 
-- BrowserRouter 下阻止 a 标签默认事件，通过 pushState 设置路由
+- `BrowserRouter` 下阻止 `a` 标签默认事件，通过 `pushState` 设置路由
   ```javascript
   const onClick = (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ window.addEventListener('hashchange', () => {
     onChange();
   };
   ```
-- HashRouter 下在 to 属性前添加 `#`
+- `HashRouter` 下在 to 属性前添加 `#`
   ```jsx
   <a href={`#${to}`} {...rest}>
     {rest.children}
