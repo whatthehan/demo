@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+import Home from '@/pages/home';
+
+function App() {
+  return <Home />;
+}
 
 const root = document.getElementById('root');
 
