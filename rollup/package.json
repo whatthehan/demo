@@ -9,25 +9,29 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "antd": "^4.4.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+  "peerDependencies": {
+    "antd": "^4.10.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
-    "less": "^3.11.3",
-    "rollup": "^2.18.2",
-    "rollup-plugin-alias": "^2.2.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-postcss": "^3.1.2",
-    "rollup-plugin-resolve": "^0.0.1-predev.1",
-    "rollup-plugin-typescript": "^1.0.1",
-    "typescript": "^3.9.6"
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "antd": "^4.10.0",
+    "babel-plugin-import": "^1.13.3",
+    "less": "^4.1.1",
+    "postcss": "^8.3.0",
+    "prettier": "^2.3.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "rollup": "^2.49.0",
+    "rollup-plugin-postcss": "^4.0.0",
+    "typescript": "^4.2.4"
   }
 }

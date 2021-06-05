@@ -4,7 +4,7 @@ import './style.less';
 
 function App() {
   return (
-    <div className="app">
+    <div>
       <h3>Hello, Rollup!</h3>
       <Button type="primary">GOT IT!!!</Button>
     </div>
@@ -12,4 +12,3 @@ function App() {
 }
 
 export default App;
-

@@ -1,55 +1,68 @@
-import alias from 'rollup-plugin-alias'
-import babel from 'rollup-plugin-babel'
-import resolve from 'rollup-plugin-node-resolve'
-import postcss from 'rollup-plugin-postcss'
-import commonjs from 'rollup-plugin-commonjs'
-import typescript from "rollup-plugin-typescript";
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
+import postcss from 'rollup-plugin-postcss';
 
+const pkg = require('../package.json');
+const external = [
+  'react',
+  'react-dom',
+  /^antd/,
+  ...Object.keys({ ...pkg.dependencies, ...pkg.peerDependencies }),
+];
 
 export default {
-  // 模块名称
-  moduleName: 'rollup-demo',
-  // 入口文件
   input: 'src/index.tsx',
-  // 输出文件
   output: [
     {
-      name: 'rollup-demo',
-      format: 'es',
-      file: 'es/index.js'
+      format: 'cjs',
+      dir: 'lib',
     },
     {
-      name: 'rollup-demo',
+      format: 'es',
+      dir: 'es',
+    },
+    {
       format: 'umd',
-      file: 'lib/index.js'
-    }
+      name: pkg.name,
+      dir: 'dist',
+    },
   ],
-  //外部模块配置
+  external: external,
   plugins: [
-    typescript(),
-    // 别名
-    alias({
-      resolve: ['.tsx', '.jsx', '.ts', '.js']
-    }),
-    // 通知rollup如何查找外部模块
     resolve({
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      }
+      extensions: ['.tsx', '.ts', '.jsx', '.js'],
+      browser: true,
     }),
-    // babel转换
     babel({
-      exclude: '../node_modules/**',
-      include: '../src',
-      runtimeHelpers: true
-    }),
-    // 将CommonJS转为ES6模块
-    commonjs({
-      include: '../node_modules/**'
+      babelHelpers: 'runtime',
+      extensions: ['.tsx', '.ts', '.jsx', '.js'],
+      include: ['src/**/*'],
+      exclude: '**/node_modules/**',
+      presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+      plugins: [
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            useESModules: false,
+          },
+        ],
+        [
+          'babel-plugin-import',
+          {
+            libraryName: 'antd',
+            libraryDirectory: 'lib',
+            style: 'css',
+          },
+        ],
+      ],
     }),
     postcss({
+      extensions: ['.css', '.less'],
       extract: true,
-      extensions: ['.less']
-    })
-  ]
-}
+      modules: {
+        auto: true,
+      },
+      use: [['less', { javascriptEnabled: true }]],
+    }),
+  ],
+};

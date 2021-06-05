@@ -4,7 +4,9 @@
     "jsx": "react",
     "sourceMap": true,
     "module": "ES6",
-    "declaration": true
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["typing.d.ts"]
   },
   "exclude": ["node_modules"]
 }
