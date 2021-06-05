@@ -6,5 +6,4 @@ dist
 build
 .cache
 
-yarn.lock
 yarn-error.log
